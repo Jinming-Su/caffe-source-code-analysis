@@ -11,3 +11,7 @@ Operation: ubuntu 16.04.1
 4. Knowledge routes  
     1. pre-knowledge  
         1. dependent softwares
+5. Contents
+    1. dependent softwares  
+    2. installation of caffe  
+
