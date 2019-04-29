@@ -246,3 +246,38 @@ Person ID: 1
   E-mail address: sujm@sujm.cn
   Mobile phone #: 188xxxxxxxx
 ```
+
+### 2. Boost  
+Boost is a third-party library of C++. In Caffe, its smart pointer function is mainly used, which has own-counting function.  
+
+### 3. GFLAGS  
+Gflags is google's open source command line parameter parser tool.  
+
+### 4. GLOG  
+Glog is google;s open source library for logging applications.  
+
+### 5. BLAS
+Blas (Basic Linear Algebra Subprograms) is a library for math operation, mainly including matrix and vector computing. There exists many implementation of BLAS, such as MKL, ATLAS, OpenBLAS, etc. We can set the type of BLAS in `Makefile.config`.  
+
+### 6. HDF5  
+Hdf5 is a new data format for efficient storage. The model of caffe can be stored as the format of Hdf5 or protobuffer (default).  
+
+### 7. OpenCV  
+OpenCV is a cross-platform computer vision library based on BSD license (open source).  
+
+### 8. LMDB and LEVELDB
+Lmdb (lightning memory-mapped database manager) is a dataset manager, which provide data management for Caffe. Leveldb is a data storage format for ealier-version Caffe.  
+
+### 9. Snappy
+Snappy a C++ library for compressing and uncompressing.  
+
+### Usage in Caffe
+* GFLAGS, GLOG: `tools/caffe.cpp`  
+* BLAS: `include/caffe/util/math_functions.hpp`  
+* HDF5: `include/caffe/util/hdf5.hpp`  
+* OpenCV: `include/caffe/util/io.hpp`  
+* LMDB and LEVELDB: `include/caffe/util/db_lmdb.hpp`  
+
+### Reference  
+* protobuffer: https://satisfie.github.io/2016/06/08/Caffe%E8%A7%A3%E8%AF%BB2-Protocol-Buffers/
+* 深度学习21天实战Caffe: 第5天
