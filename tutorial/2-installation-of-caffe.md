@@ -1,4 +1,4 @@
-### Installation of Caffe without CUDA  
+### 1. Installation of Caffe without CUDA  
 **_Note_**: this tutorial is based on ubuntu 16.04 unless otherwise specified.  
 1. install dependent software  
 ```
@@ -47,7 +47,7 @@ I0429 14:42:56.596683 16998 sgd_solver.cpp:112] Iteration 100, lr = 0.00992565
 ```
 The tutorial of installation without CUDA is easy. And I don't provide extra operations because I think we should have at least one GPU to run caffe. Next, I will give more functions of Caffe with CUDA.  
 
-###  Installation of Caffe with CUDA 
+### 2. Installation of Caffe with CUDA 
 1. install NVIDA driver  
 ```
 // download driver from http://www.geforce.cn/drivers
@@ -82,7 +82,7 @@ Mon Apr 29 15:16:32 2019
 |    0     13391      G   ...-token=2AB8372DA2E40D18CAC06CE88B773B9C    11MiB |
 +-----------------------------------------------------------------------------+
 ```
-**_Note: If the screen is black after running `Ctrl+Alt+F1`, _**  
+**_Note: If the screen is black after running `Ctrl+Alt+F1`,_**  
 ```
 vim /etc/default/grub
 // moidify the value of GRUB_CMDLINE_LINUX_DEFAULT as nomodeset
@@ -134,7 +134,7 @@ I0429 15:25:03.664551 19056 solver.cpp:332] Optimization Done.
 I0429 15:25:03.664556 19056 caffe.cpp:250] Optimization Done.
 ```
 
-### Compile the Python interface
+### 3. Compile the Python interface
 ```
 // change Makefile.config at
 PYTHON_INCLUDE := /usr/include/python2.7 \
@@ -142,12 +142,12 @@ PYTHON_INCLUDE := /usr/include/python2.7 \
 make pycaffe
 ```
 
-### Compile the Matlab interface
+### 4. Compile the Matlab interface
 ```
 // change the path of Matalb in Makefile.config, and then
 make matcaffe
 ```
-**_Note: If there exists error because the version of GCC or G++, such as 5.3 against 4.9, the solution is as follows: _**  
+**_Note: If there exists error because the version of GCC or G++, such as 5.3 against 4.9, the solution is as follows:_**  
 ```
 // 1. install gcc and g++ 4.9
 sudo apt-get install gcc-4.9 g++-4.9 gcc-4.9-multilib g++-4.9-multilib
@@ -171,7 +171,7 @@ sudo rm libopencv_imgproc.so.2.4
 sudo ln -s /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.2.4.9 libopencv_imgproc.so.2.4
 ```
 
-### Extra Problems or Errors
+### 5. Extra Problems or Errors
 1. `error while loading shared libraries: libcudnn.so.x.x: cannot open shared object file: No such file or directory`  
 Solution:  
 ```
