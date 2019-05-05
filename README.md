@@ -12,6 +12,8 @@ Operation: ubuntu 16.04.1
     1. pre-knowledge  
         1. dependent softwares
 5. Contents
-    1. dependent softwares  
-    2. installation of caffe  
+    1. Dependent softwares  
+    2. Installation of Caffe  
+    3. Single step debugging Caffe by clion  
+　
 
