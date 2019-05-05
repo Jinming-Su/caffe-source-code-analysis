@@ -8,12 +8,11 @@ Operation: ubuntu 16.04.1
 3. **_Note_**  
     1. This project is not intended as an introduction to the project, while for a deeper understanding of the mechanism of caffe. Therefore, a large amount of relevant knowledge may be needed.
 
-4. Knowledge routes  
-    1. pre-knowledge  
-        1. dependent softwares
-5. Contents
-    1. Dependent softwares  
-    2. Installation of Caffe  
-    3. Single step debugging Caffe by clion  
+4. Contents
+    1. pre-knowledge
+        1. Dependent softwares  
+        2. Installation of Caffe  
+        3. Single step debugging Caffe by clion  
+        4. Makefile
 　
 
