@@ -6,7 +6,7 @@
 Operation: ubuntu 16.04.1
 
 3. **_Note_**  
-    1. This project is not intended as an introduction to the project, while for a deeper understanding of the mechanism of caffe. Therefore, a large amount of relevant knowledge may be needed.
+    **_This project is not intended as an introduction to the project, while for a deeper understanding of the mechanism of caffe. Therefore, a large amount of relevant knowledge may be needed._**
 
 4. Contents
     1. Pre-knowledge  
