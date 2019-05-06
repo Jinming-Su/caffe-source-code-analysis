@@ -57,6 +57,7 @@ class SolverRegistry {
   typedef std::map<string, Creator> CreatorRegistry;
 
   static CreatorRegistry& Registry() {
+    // pointer to std::map<string, Creator>
     static CreatorRegistry* g_registry_ = new CreatorRegistry();
     return *g_registry_;
   }
@@ -71,10 +72,15 @@ class SolverRegistry {
 
   // Get a solver using a SolverParameter.
   static Solver<Dtype>* CreateSolver(const SolverParameter& param) {
+    // Type of solver, such as SGD.
     const string& type = param.type();
+    // typedef std::map<string, Creator> CreatorRegistry;
+    // Type of Creator is function pointer
     CreatorRegistry& registry = Registry();
     CHECK_EQ(registry.count(type), 1) << "Unknown solver type: " << type
         << " (known types: " << SolverTypeListString() << ")";
+    // typedef Solver<Dtype>* (*Creator)(const SolverParameter&);
+    // return Solver*(param)
     return registry[type](param);
   }
 
@@ -91,6 +97,7 @@ class SolverRegistry {
  private:
   // Solver registry should never be instantiated - everything is done with its
   // static variables.
+  // Constructor
   SolverRegistry() {}
 
   static string SolverTypeListString() {

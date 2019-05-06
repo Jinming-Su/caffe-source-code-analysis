@@ -395,6 +395,7 @@ int main(int argc, char** argv) {
   }
 }
 ```
+The whole file caffe.cpp with comments can be found in caffe-test.  
 
 ### Reference
 * https://github.com/chaowang1994/alanse7en.github.io/blob/master/_posts/2016-01-05-caffedai-ma-3.md

@@ -17,3 +17,4 @@ Operation: ubuntu 16.04.1
     2. Source Code  
         5.caffe.proto  
         6.caffe.cpp  
+        7.solver  

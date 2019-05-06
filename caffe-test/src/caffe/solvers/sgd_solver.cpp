@@ -107,12 +107,12 @@ void SGDSolver<Dtype>::ClipGradients() {
 
 template <typename Dtype>
 void SGDSolver<Dtype>::ApplyUpdate() {
-  Dtype rate = GetLearningRate();
+  Dtype rate = GetLearningRate(); // calculate learning rate according to current iteration
   if (this->param_.display() && this->iter_ % this->param_.display() == 0) {
     LOG_IF(INFO, Caffe::root_solver()) << "Iteration " << this->iter_
         << ", lr = " << rate;
   }
-  ClipGradients();
+  ClipGradients(); // prevent gradient explosion
   for (int param_id = 0; param_id < this->net_->learnable_params().size();
        ++param_id) {
     Normalize(param_id);
