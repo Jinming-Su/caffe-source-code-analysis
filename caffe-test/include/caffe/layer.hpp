@@ -67,7 +67,7 @@ class Layer {
   void SetUp(const vector<Blob<Dtype>*>& bottom,
       const vector<Blob<Dtype>*>& top) {
     CheckBlobCounts(bottom, top);
-    LayerSetUp(bottom, top);
+    LayerSetUp(bottom, top); // Set shape and initialize randomly
     Reshape(bottom, top);
     SetLossWeights(top);
   }

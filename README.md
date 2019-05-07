@@ -15,6 +15,7 @@ Operation: ubuntu 16.04.1
         3.Single step debugging Caffe by clion  
         4.Makefile  
     2. Source Code  
-        5.caffe.proto  
-        6.caffe.cpp  
-        7.solver  
+        5.Analyze caffe.proto  
+        6.Analyze caffe.cpp  
+        7.Solver  
+        8.Net and layer  

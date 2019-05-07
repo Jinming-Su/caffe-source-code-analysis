@@ -49,12 +49,16 @@ void Net<Dtype>::Init(const NetParameter& in_param) {
   // Filter layers based on their include/exclude rules and
   // the current NetState.
   NetParameter filtered_param;
-  FilterNet(in_param, &filtered_param);
+  FilterNet(in_param, &filtered_param); // remove the layers that violates the rule
   LOG_IF(INFO, Caffe::root_solver())
       << "Initializing net from parameters: " << std::endl
       << filtered_param.DebugString();
   // Create a copy of filtered_param with splits added where necessary.
   NetParameter param;
+  /*
+   * For the case that one output blob of the bottom layer corresponds to multiple upper layer,
+   * a split layer is added to form a new netowrk
+   */
   InsertSplits(filtered_param, &param);
   // Basically, build all the layers and set up their connections.
   name_ = param.name();
@@ -62,11 +66,11 @@ void Net<Dtype>::Init(const NetParameter& in_param) {
   set<string> available_blobs;
   memory_used_ = 0;
   // For each layer, set up its input and output
-  bottom_vecs_.resize(param.layer_size());
-  top_vecs_.resize(param.layer_size());
-  bottom_id_vecs_.resize(param.layer_size());
-  param_id_vecs_.resize(param.layer_size());
-  top_id_vecs_.resize(param.layer_size());
+  bottom_vecs_.resize(param.layer_size()); // Store a bottom blob pointer for each layer
+  top_vecs_.resize(param.layer_size()); // Store a top blob pointer for each layer
+  bottom_id_vecs_.resize(param.layer_size()); // Store a bottom blob id for each layer
+  param_id_vecs_.resize(param.layer_size()); // Store a param blob id for each layer
+  top_id_vecs_.resize(param.layer_size()); // Store a top blob id for each layer
   bottom_need_backward_.resize(param.layer_size());
   for (int layer_id = 0; layer_id < param.layer_size(); ++layer_id) {
     // Inherit phase from net if unset.
@@ -81,7 +85,7 @@ void Net<Dtype>::Init(const NetParameter& in_param) {
           << "propagate_down param must be specified "
           << "either 0 or bottom_size times ";
     }
-    layers_.push_back(LayerRegistry<Dtype>::CreateLayer(layer_param));
+    layers_.push_back(LayerRegistry<Dtype>::CreateLayer(layer_param)); // create a layer and assign a value
     layer_names_.push_back(layer_param.name());
     LOG_IF(INFO, Caffe::root_solver())
         << "Creating Layer " << layer_param.name();
